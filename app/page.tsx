@@ -10,7 +10,11 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center font-bold">
       <div className='block text-center'>
-        <p className='mb-5'>remi-24</p>
+        <p className='mb-5 text-3xl'>
+          remi-24
+          <br />
+          <span className='opacity-50 text-sm'>by @brian</span>
+        </p>
         <Button href="/play" variant="contained" color="secondary" style={{
           borderRadius: 50,
           paddingTop: 10,
