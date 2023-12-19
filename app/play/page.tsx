@@ -2,23 +2,42 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 
-export default async function Play() {
-    const [data, setData] = useState(null)
+export default function Play() {
+    const [data, setData] = useState(0)
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await fetch("/api/random", {method: "POST"});
-            const data = await response.json();
-            setData(data);
-        }
-        fetchData();
+        fetch('/api/random', {
+            method: "POST"
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setData(data);
+                } else {
+                    // Handle non-array response, e.g., set data to an empty array
+                    setData([]);
+                }
+                setLoading(false);
+            })
     }, []);
-
-    console.log(data)
     
+    if (isLoading) return (
+        <div className="min-h-screen flex items-center justify-center font-bold">
+            <div className='block text-center'>
+                <p>Loading...</p>
+            </div>
+        </div>
+    )
+
     return (
         <div className="min-h-screen flex items-center justify-center font-bold">
             <div className='block text-center'>
+                <ul>
+                    {data.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
                 <p className="mb-5">Hey this is from play</p>
                 <Button href="/" variant="contained" color="secondary" style={{
                     borderRadius: 50,
