@@ -66,7 +66,7 @@ export default function Result({result}: ResultProps){
             "(Zannen! Seikai o michibikidasenakatta ne!)"
         ]
     }
-    
+
     return (
         <div className="min-h-screen flex items-center justify-center font-bold p-5">
             <div className="block text-center">
@@ -78,7 +78,7 @@ export default function Result({result}: ResultProps){
                 className="rounded-xl"
                 >
                 </Image>
-                <p className={notoSansJP.className}>{guessedRight[0]}</p>
+                <p className={notoSansJP.className}>{guessedRight.kanji[0]}</p>
             </div>
         </div>
     )
