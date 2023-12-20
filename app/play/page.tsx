@@ -65,7 +65,7 @@ export default function Play() {
     }
 
     if (guess !== "playing") {
-        return <Result result={result.message === guess} expression={result.expression}/>
+        return <Result result={result.message === guess} expression={result.expression} nums={data.nums}/>
     }else {
         return (
             <div className="min-h-screen flex items-center justify-center font-bold p-5">

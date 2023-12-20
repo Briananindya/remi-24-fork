@@ -92,7 +92,8 @@ function randomInt(min: number, max: number): number {
 
 type ResultProps = {
     result: boolean,
-    expression: string
+    expression: string,
+    nums: number[]
 }
 
 function addParentheses(expression: string): string {
@@ -101,7 +102,7 @@ function addParentheses(expression: string): string {
     return `((${nums[0]}${operators[0]}${nums[1]})${operators[1]}${nums[2]})${operators[2]}${nums[3]}`
 }
 
-export default function Result({result, expression}: ResultProps){
+export default function Result({result, expression, nums}: ResultProps){
     let textIndex = randomInt(0, 9)
     let gifIndex = randomInt(0, 9)
 
@@ -127,6 +128,7 @@ export default function Result({result, expression}: ResultProps){
                     </span>
                 </p>
                 <div className="mb-3 mt-3">
+                    [{nums.join(',')}]
                     {expression ? (<p>
                         Solution: {addParentheses(expression)}
                     </p>) : ""}
