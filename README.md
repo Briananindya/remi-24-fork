@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Remi-24
 
-## Getting Started
+Welcome to Remi-24, a fun and challenging number puzzle game where players try to manipulate four given integers to achieve a result of 24 using basic arithmetic operations.
 
-First, run the development server:
+## How to Play
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Visit the [Remi-24](https://remi-24.vercel.app/).
+2. You will be presented with four randomly generated integers.
+3. Your task is to use addition (+), subtraction (-), multiplication (*), and division (/) to combine these numbers and obtain a result of 24.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Example
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Given the numbers: 2, 5, 9, 4
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A possible solution could be: `((5+9)*2)-4 = 24`
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! If you have any suggestions, improvements, or find any issues, please open an [issue](https://github.com/yourusername/remi-24/issues) or submit a [pull request](https://github.com/yourusername/remi-24/pulls).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+If you want to run Remi-24 locally:
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/remi-24.git
+Navigate to the project directory:
+
+    cd remi-24
+
+Install dependencies:
+
+    npm install
+Run the development server:
+
+    npm run dev
+Visit `http://localhost:3000` in your browser to play Remi-24 locally.
