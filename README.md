@@ -16,7 +16,7 @@ A possible solution could be: `((5+9)*2)-4 = 24`
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, improvements, or find any issues, please open an [issue](https://github.com/yourusername/remi-24/issues) or submit a [pull request](https://github.com/yourusername/remi-24/pulls).
+Contributions are welcome! If you have any suggestions, improvements, or find any issues, please open an [issue](https://github.com/fairuztsn/remi-24/issues) or submit a [pull request](https://github.com/fairuztsn/remi-24/pulls).
 
 ## Local Development
 
