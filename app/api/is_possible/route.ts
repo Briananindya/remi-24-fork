@@ -1,24 +1,25 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request) {
-    request = await request.json()
+export async function POST(request: NextRequest) {
+    // Use a different variable name for the parsed JSON object
+    const data = await request.json()
     // Validate the input and handle errors
-    if (!request.nums || !request.target) {
+    if (!data.nums || !data.target) {
         return NextResponse.json({ error: "Missing nums or target" }, { status: 400 });
     }
-    if (!Array.isArray(request.nums) || typeof request.target !== "number") {
+    if (!Array.isArray(data.nums) || typeof data.target !== "number") {
         return NextResponse.json({ error: "Invalid nums or target" }, { status: 400 });
     }
-    if (request.nums.length === 0) {
+    if (data.nums.length === 0) {
         return NextResponse.json({ error: "Empty nums array" }, { status: 400 });
     }
 
     // Call the helper function and get the result
-    const result = generateCombinations(request.nums, request.target);
+    const result = generateCombinations(data.nums, data.target);
 
     // Return a descriptive message and a status code
     return NextResponse.json(
-        { message: result},
+        { message: result },
         { status: 200 }
     );
 }
@@ -29,7 +30,7 @@ function generateCombinations(
     current_index: number = 0,
     current_result: number = 0,
     memo: Map<number, boolean> = new Map() // Use a map to store the intermediate results
-): boolean {
+): any {
     // Base case: reached the end of the array
     if (current_index === nums.length) {
         return current_result === target;
