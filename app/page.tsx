@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen flex items-center justify-center font-bold">
       <div className='block text-center'>
         <p className='mb-5 text-3xl'>
-          remi-24
+          remi-24 🧠🎲⚙️
           <br />
           <span className='opacity-50 text-sm'>by @brian</span>
         </p>
