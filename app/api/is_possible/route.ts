@@ -1,82 +1,107 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-    // Use a different variable name for the parsed JSON object
-    const data = await request.json()
-    // Validate the input and handle errors
+    const data = await request.json();
+
     if (!data.nums || !data.target) {
         return NextResponse.json({ error: "Missing nums or target" }, { status: 400 });
     }
+
     if (!Array.isArray(data.nums) || typeof data.target !== "number") {
         return NextResponse.json({ error: "Invalid nums or target" }, { status: 400 });
     }
+
     if (data.nums.length === 0) {
         return NextResponse.json({ error: "Empty nums array" }, { status: 400 });
     }
 
-    // Call the helper function and get the result
-    const result = generateCombinations(data.nums, data.target);
+    const result = findCombination(data.nums);
 
-    // Return a descriptive message and a status code
     return NextResponse.json(
-        { message: result },
+        result,
         { status: 200 }
     );
 }
 
-function generateCombinations(
-    nums: number[],
-    target: number,
-    current_index: number = 0,
-    current_result: number = 0,
-    memo: Map<number, boolean> = new Map() // Use a map to store the intermediate results
-): any {
-    // Base case: reached the end of the array
-    if (current_index === nums.length) {
-        return current_result === target;
+function shuffleArray(array: number[]): void {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
-
-    // Check if the result is already computed and return it
-    const key = current_index * 1000 + current_result; // Use a unique key for each pair of index and result
-    if (memo.has(key)) {
-        return memo.get(key);
-    }
-
-    // Try addition
-    if (
-        generateCombinations(nums, target, current_index + 1, current_result + nums[current_index], memo)
-    ) {
-        memo.set(key, true); // Store the result in the map
-        return true;
-    }
-
-    // Try subtraction
-    if (
-        generateCombinations(nums, target, current_index + 1, current_result - nums[current_index], memo)
-    ) {
-        memo.set(key, true); // Store the result in the map
-        return true;
-    }
-
-    // Try multiplication
-    if (
-        generateCombinations(nums, target, current_index + 1, current_result * nums[current_index], memo)
-    ) {
-        memo.set(key, true); // Store the result in the map
-        return true;
-    }
-
-    // Try division (avoid division by zero)
-    if (
-        nums[current_index] !== 0 &&
-        current_result % nums[current_index] === 0 &&
-        generateCombinations(nums, target, current_index + 1, current_result / nums[current_index], memo)
-    ) {
-        memo.set(key, true); // Store the result in the map
-        return true;
-    }
-
-    // No combination found
-    memo.set(key, false); // Store the result in the map
-    return false;
 }
+
+function shuffleOperations(array: string[]): void {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function calculateWithPriority(arr: number[], ops: string[]): number {
+    let result = arr[0];
+    let currentOperation = ops[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        switch (currentOperation) {
+            case '+':
+                result += arr[i];
+                break;
+            case '-':
+                result -= arr[i];
+                break;
+            case '*':
+                result *= arr[i];
+                break;
+            case '/':
+                result /= arr[i];
+                break;
+            default:
+                break;
+        }
+
+        if (i < ops.length) {
+            currentOperation = ops[i];
+        }
+    }
+
+    return result;
+}
+
+interface CombinationResult {
+    message: boolean;
+    expression?: string;
+}
+
+function buildExpression(nums: number[], ops: string[]): string {
+    let expression = nums[0].toString();
+
+    for (let i = 1; i < nums.length; i++) {
+        expression += ops[i - 1] + nums[i];
+    }
+
+    return expression;
+}
+
+function findCombination(arr: number[]): CombinationResult {
+    const operations = ['+', '-', '*', '/'];
+
+    for (let i = 0; i < 6912; i++) {
+        const shuffledArray = [...arr];
+        const shuffledOperations = [...operations];
+
+        shuffleArray(shuffledArray);
+        shuffleOperations(shuffledOperations);
+
+        const result = calculateWithPriority(shuffledArray, shuffledOperations);
+
+        if (result === 24) {
+            const expression = buildExpression(shuffledArray, shuffledOperations);
+            return { message: true, expression };
+        }
+    }
+
+    return { message: false };
+}
+
+
+

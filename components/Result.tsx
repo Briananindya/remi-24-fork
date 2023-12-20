@@ -50,9 +50,9 @@ const guessedRight = {
 const guessedWrong = {
     gifs: [
         "https://media.tenor.com/BYsOZIxZGB0AAAAM/josuke.gif",
-        "https://media.tenor.com/bNrnl6bi8BEAAAAM/anime-bleh.gif",
+        "https://media.tenor.com/8kvx6rXn5w4AAAAM/anime-smile.gif",
         "https://media.tenor.com/EqrI4CB-grYAAAAM/anime-happy.gif",
-        "https://media.tenor.com/BP9vMzwRSZwAAAAM/laughing-lol.gif",
+        "https://media.tenor.com/ZglUG-3bnOAAAAAM/anime-shikimoris-not-just-cute.gif",
         "https://media.tenor.com/-R5KgJXNyiwAAAAM/jujutsu-kaisen-itadori.gif",
         "https://media.tenor.com/jKCHrqzLx2wAAAAM/jojo-laugh.gif",
         "https://media.tenor.com/ZncIFM9jiMoAAAAM/anime-crying.gif",
@@ -92,9 +92,16 @@ function randomInt(min: number, max: number): number {
 
 type ResultProps = {
     result: boolean,
+    expression: string
 }
 
-export default function Result({result}: ResultProps){
+function addParentheses(expression: string): string {
+    let nums: string[] = expression.split(/[+\-*/]/)
+    let operators: string[] = expression.match(/[+\-*/]/g) || [];
+    return `((${nums[0]}${operators[0]}${nums[1]})${operators[1]}${nums[2]})${operators[2]}${nums[3]}`
+}
+
+export default function Result({result, expression}: ResultProps){
     let textIndex = randomInt(0, 9)
     let gifIndex = randomInt(0, 9)
 
@@ -119,6 +126,11 @@ export default function Result({result}: ResultProps){
                         {result ? guessedRight.romaji[textIndex] : guessedWrong.romaji[textIndex]}
                     </span>
                 </p>
+                <div className="mb-3 mt-3">
+                    {expression ? (<p>
+                        Solution: {addParentheses(expression)}
+                    </p>) : ""}
+                </div>
                 <Button href="/play" variant="contained" color="primary" style={{
                     marginTop: 20,
                     borderRadius: 50,

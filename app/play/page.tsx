@@ -4,39 +4,48 @@ import Image from "next/image";
 import Result from "@/components/Result";
 import { Button } from "@mui/material";
 
+type ResultProps = {
+    message: boolean,
+    expression: string
+}
+
 export default function Play() {
     const [data, setData] = useState({nums: [1,2,3,4]})
     const [isLoading, setLoading] = useState(true)
     const [guess, setGuess] = useState<string | boolean>("playing")
-    const [result, setResult] = useState<boolean>(false)
+    const [result, setResult] = useState<ResultProps>({message: false, expression: ""})
 
     useEffect(() => {
-        fetch('/api/random', {
-            method: "POST"
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            setData(data)
-            setLoading(false);
-        })
-    }, []);
+        const fetchData = async () => {
+            try {
+                // Fetch random data
+                const randomDataRes = await fetch("/api/random", {
+                    method: "POST",
+                });
+                const randomData = await randomDataRes.json();
+                setData(randomData);
+                setLoading(false);
 
-    useEffect( () => {
-        fetch('/api/is_possible', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                nums: data.nums,
-                target: 24
-            })
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                setResult(res.message)
-            })
-    } )
+                // Fetch result based on the fetched random data
+                const isPossibleRes = await fetch("/api/is_possible", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        nums: randomData.nums,
+                        target: 24,
+                    }),
+                });
+                const isPossibleResult = await isPossibleRes.json();
+                setResult(isPossibleResult);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
     
     if (isLoading) {
         return (
@@ -56,17 +65,11 @@ export default function Play() {
     }
 
     if (guess !== "playing") {
-        return <Result result={result === guess}/>
+        return <Result result={result.message === guess} expression={result.expression}/>
     }else {
         return (
             <div className="min-h-screen flex items-center justify-center font-bold p-5">
                 <div className='block text-center'>
-                    {/* <ul>
-                    {data.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul> */}
-
                     <p className="mb-3 text-2xl">
                         Can the following list of numbers be operated in such a way that it produces 24? 👀
                     </p>
