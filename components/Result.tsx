@@ -113,7 +113,7 @@ export default function Result({result}: ResultProps){
                 </div>
                 <div className="mt-5"></div>
                 <p className={notoSansJP.className}>
-                    {guessedRight.kanji[textIndex]}
+                    {result ? guessedRight.kanji[textIndex] : guessedWrong.kanji[textIndex]}
                     <br />
                     <span className="opacity-75">
                         {result ? guessedRight.romaji[textIndex] : guessedWrong.romaji[textIndex]}
