@@ -33,14 +33,16 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
         git clone https://github.com/fairuztsn/remi-24.git
 
 
-Navigate to the project directory:
+2. Navigate to the project directory:
 
-    cd remi-24
+        cd remi-24
 
-Install dependencies:
+3. Install dependencies:
 
-    npm install
-Run the development server:
+        npm install
 
-    npm run dev
+4. Run the development server:
+
+        npm run dev
+
 Visit `http://localhost:3000` in your browser to play Remi-24 locally.
