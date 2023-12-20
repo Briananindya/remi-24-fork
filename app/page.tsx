@@ -13,7 +13,7 @@ export default function Home() {
         <p className='mb-5 text-3xl'>
           remi-24 🧠🎲⚙️
           <br />
-          <span className='opacity-50 text-sm'>by @brian</span>
+          <span className='opacity-50 text-sm'>by @tsfai</span>
         </p>
         <Button href="/play" variant="contained" color="secondary" style={{
           borderRadius: 50,
