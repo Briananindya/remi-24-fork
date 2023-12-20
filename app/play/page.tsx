@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Result from "@/components/Result";
 import { Button } from "@mui/material";
 
@@ -18,7 +19,9 @@ export default function Play() {
             setData(data)
             setLoading(false);
         })
+    }, []);
 
+    useEffect( () => {
         fetch('/api/is_possible', {
             method: "POST",
             headers: {
@@ -29,26 +32,31 @@ export default function Play() {
                 target: 24
             })
         })
-        .then((res) => res.json())
-        .then((res) => {
-            setResult(res)
-        })
-    }, []);
+            .then((res) => res.json())
+            .then((res) => {
+                setResult(res.message)
+            })
+    } )
     
     if (isLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center font-bold">
                 <div className='block text-center'>
+                    <Image 
+                        src="https://media.tenor.com/HHUcXimKS7cAAAAi/yay-jumping.gif"
+                        alt="Loading" 
+                        width={100} 
+                        height={100}
+                    >
+                    </Image>
                     <p>Loading...</p>
                 </div>
             </div>
         )
     }
 
-    if (guess === true) {
-        return <Result result={true}/>
-    }else if(guess === false) {
-        return "Oh no"
+    if (guess !== "playing") {
+        return <Result result={result === guess}/>
     }else {
         return (
             <div className="min-h-screen flex items-center justify-center font-bold p-5">
