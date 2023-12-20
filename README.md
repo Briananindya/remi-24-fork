@@ -30,8 +30,9 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/yourusername/remi-24.git
+        git clone https://github.com/fairuztsn/remi-24.git
+
+
 Navigate to the project directory:
 
     cd remi-24
