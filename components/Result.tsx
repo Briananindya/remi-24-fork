@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Noto_Sans_JP } from "next/font/google";
 import { Button } from "@mui/material";
 
@@ -9,6 +9,7 @@ const notoSansJP = Noto_Sans_JP({
     variable: '--font-noto-sans-jp',
 });
 
+// GIF data
 const guessedRight = {
     gifs: [
         "https://media.tenor.com/mHXNv7TSCLMAAAAi/detective-conan.gif",
@@ -25,7 +26,7 @@ const guessedRight = {
     kanji: [
         "There is always only one truth",
         "There's not a mystery in the world that can't be solved!!!",
-        "The strong one doesn't win, the one that win is strong",
+        "The strong one doesn't win, the one that wins is strong",
         "How come you did that?",
         "The power of deduction is not limited by age. It’s the mind that solves cases, not the body..",
         "A man who can only think about mysteries isn’t capable of doing things like this",
@@ -87,6 +88,34 @@ const guessedWrong = {
     ]
 };
 
+const popupGifs = {
+    correct: [
+        "https://media.tenor.com/mHXNv7TSCLMAAAAi/detective-conan.gif",
+        "https://media.tenor.com/8KYu56w12M4AAAAi/detective-conan-okay.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/8KYu56w12M4AAAAi/detective-conan-okay.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/mHXNv7TSCLMAAAAi/detective-conan.gif"
+    ],
+    incorrect: [
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif"
+    ],
+
+};
+
 function randomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -106,17 +135,40 @@ type ResultProps = {
 export default function Result({ result, expression, nums }: ResultProps) {
     const correctAudio = useRef<HTMLAudioElement>(null);
     const wrongAudio = useRef<HTMLAudioElement>(null);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupGif, setPopupGif] = useState("");
+    const [guessGif, setGuessGif] = useState("");
+    const [kanji, setKanji] = useState("");
+    const [romaji, setRomaji] = useState("");
 
     useEffect(() => {
-        if (result) {
-            correctAudio.current?.play();
-        } else {
-            wrongAudio.current?.play();
-        }
+        const getRandomElement = (array: string[]) => array[randomInt(0, array.length - 1)];
+        
+        // Set GIFs based on the result
+        const selectedGif = result ? getRandomElement(guessedRight.gifs) : getRandomElement(guessedWrong.gifs);
+        setGuessGif(selectedGif);
+    
+        // Set kanji and romaji texts
+        const kanjiIndex = randomInt(0, result ? guessedRight.kanji.length - 1 : guessedWrong.kanji.length - 1);
+        const kanjiText = result ? guessedRight.kanji[kanjiIndex] : guessedWrong.kanji[kanjiIndex];
+        const romajiText = result ? guessedRight.romaji[kanjiIndex] : guessedWrong.romaji[kanjiIndex];
+        setKanji(kanjiText);
+        setRomaji(romajiText);
+    
+        setPopupGif(result ? getRandomElement(popupGifs.correct) : getRandomElement(popupGifs.incorrect));
+    
+        // Play corresponding audio
+        result ? correctAudio.current?.play() : wrongAudio.current?.play();
+    
+        // Show popup
+        setShowPopup(true);
+        const timer = setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
     }, [result]);
-
-    let textIndex = randomInt(0, 9);
-    let gifIndex = randomInt(0, 9);
+    
 
     return (
         <div className="min-h-screen flex items-center justify-center font-bold p-5">
@@ -125,8 +177,8 @@ export default function Result({ result, expression, nums }: ResultProps) {
             <div className="block text-center">
                 <div className="flex items-center justify-center">
                     <Image
-                        src={result ? guessedRight.gifs[gifIndex] : guessedWrong.gifs[gifIndex]}
-                        alt="Winning gif"
+                        src={guessGif}
+                        alt="Result gif"
                         width={250}
                         height={250}
                         className="rounded-xl"
@@ -134,10 +186,10 @@ export default function Result({ result, expression, nums }: ResultProps) {
                 </div>
                 <div className="mt-5"></div>
                 <p className={notoSansJP.className}>
-                    {result ? guessedRight.kanji[textIndex] : guessedWrong.kanji[textIndex]}
+                    {kanji}
                     <br />
                     <span className="opacity-75">
-                        {result ? guessedRight.romaji[textIndex] : guessedWrong.romaji[textIndex]}
+                        {romaji}
                     </span>
                 </p>
                 <div className="mb-3 mt-3">
@@ -146,7 +198,7 @@ export default function Result({ result, expression, nums }: ResultProps) {
                         <p>
                             Solution: {addParentheses(expression)}
                         </p>
-                    ) : ""}
+                    ) : "" }
                 </div>
                 <Button href="/play" variant="contained" color="primary" style={{
                     marginTop: 20,
@@ -155,7 +207,7 @@ export default function Result({ result, expression, nums }: ResultProps) {
                     paddingBottom: 10,
                     display: 'block'
                 }} className='font-bold'>
-                    {result ? "Main Lagi" : "Coba Lagi"}
+                    {result ? "Main Lagi 😆✨ " : "Coba Lagi 😡💢"}
                 </Button>
                 <Button href="/" variant="contained" color="secondary" style={{
                     marginTop: 20,
@@ -167,6 +219,25 @@ export default function Result({ result, expression, nums }: ResultProps) {
                     Menu
                 </Button>
             </div>
+
+            {/* Pop-up GIF */}
+            {showPopup && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
+                    <div className="flex flex-col items-center">
+                        <Image
+                            src={popupGif}
+                            alt="Popup gif"
+                            width={300}
+                            height={300}
+                            className="rounded-xl transition-opacity duration-300 opacity-100"
+                            style={{ animation: "fadeOut 3s forwards" }}
+                        />
+                        <div className={`text-3xl font-bold text-white mt-4 animate__animated ${result ? "animate__bounceIn" : "animate__bounceOut"}`}>
+                            {result ? "Kamu Benar!! ✅" : "Kamu Salah!! ❌"}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
