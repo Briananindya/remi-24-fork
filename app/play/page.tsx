@@ -112,7 +112,7 @@ export default function Play() {
                         display: 'block'
                     }} className='font-bold'
                     >
-                        Balik
+                        Menu
                     </Button>
                 </div>
             </div>

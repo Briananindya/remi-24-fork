@@ -141,7 +141,7 @@ export default function Result({result, expression, nums}: ResultProps){
                     display: 'block'
                 }} className='font-bold'
                 >
-                    {result ? "lagi ah aku jago" : "aku akan balas dendam"}
+                    {result ? "Main Lagi" : "Coba Lagi"}
                 </Button>
                 <Button href="/" variant="contained" color="secondary" style={{
                     marginTop: 20,
@@ -151,7 +151,7 @@ export default function Result({result, expression, nums}: ResultProps){
                     display: 'block'
                 }} className='font-bold'
                 >
-                    Udah ah capek males mikir
+                    Menu
                 </Button>
             </div>
         </div>
