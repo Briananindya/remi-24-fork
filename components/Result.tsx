@@ -10,79 +10,79 @@ const notoSansJP = Noto_Sans_JP({
 
 const guessedRight = {
     gifs: [
-        "https://media.tenor.com/V8QQHq5r5AgAAAAj/bocchi-bocchi-the-rock.gif",
-        "https://media1.tenor.com/m/kq18c9o1QPAAAAAC/kita-ikuyo.gif",
-        "https://media.tenor.com/MyPnF_oV1YAAAAAj/chika-thumbs-up.gif",
-        "https://media.tenor.com/gePaZLuiEagAAAAM/miyamura-izumi.gif",
-        "https://media.tenor.com/2GoQRjy7DVkAAAAM/bocchi-the-rock.gif",
-        "https://media.tenor.com/AtUsmb-2Ch8AAAAM/satou-mafuyu.gif",
-        "https://media.tenor.com/hnP8FWI5fB4AAAAM/joseph-joestar-nice.gif",
-        "https://media.tenor.com/j_eF3ar6RHwAAAAM/jjba-jo-jos-bizarre-adventure.gif",
-        "https://media.tenor.com/bkhfUGiT26wAAAAM/rwby-ruby-rose-rwby-ice-queendom.gif",
-        "https://media.tenor.com/YzBJz32I8QMAAAAM/chika-fast.gif"  
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
     ],
     kanji: [
-        "やったね！正解だよ！",
-        "すごい！見事に当たったね！",
-        "おめでとう！よくやったね！",
-        "素晴らしい！完璧な答えだね！",
-        "さすが！ぴったり合ってるよ！",
-        "すばらしい！正しい答えを見つけたね！",
-        "お見事！正解を当てたね！",
-        "すごいね！正解を言い当てたよ！",
-        "おめでとうございます！正解です！",
-        "素敵！正解を導き出したね！"
+        "There is always only one truth",
+        "There's not a mystery in the world that can't be solved!!!",
+        "The strong one doesn't win, the one that win is strong",
+        "A trick is nothing but a puzzle mankind came up with. If you use your head, you can uncover the logical answer",
+        "The power of deduction is not limited by age. It’s the mind that solves cases, not the body..",
+        "A man who can only think about mysteries isn’t capable of doing things like this",
+        "In the world of deductions, there are no shortcuts. It’s about meticulous observation, connecting the dots, and uncovering the truth",
+        "Every mystery is a puzzle waiting to be solved. My passion for deduction burns brighter with each case",
+        "In the pursuit of truth, I’ve learned that inspiration can be found in the most unexpected places. Life itself is the greatest teacher",
+        "Observation isn’t just about seeing; it’s about truly understanding. In the smallest details lie the keys to solving the grandest mysteries",
     ],
     romaji: [
-        "(Yatta ne! Seikai da yo!)",
-        "(Sugoi! Migitoni atta ne!)",
-        "(Omedetou! Yoku yatta ne!)",
-        "(Subarashii! Kanpeki na kotae da ne!)",
-        "(Sasuga! Pittari atteru yo!)",
-        "(Subarashii! Tadashii kotae o mitsuketa ne!)",
-        "(Omisugoi! Seikai o ateta ne!)",
-        "(Sugoi ne! Seikai o iiateta yo!)",
-        "(Omedetou gozaimasu! Seikai desu!)",
-        "(Suteki! Seikai o michibikidashita ne!)"
+        "(Kebenaran selalu hanya ada satu)",
+        "(Tidak ada misteri di dunia ini yang tidak bisa dipecahkan!!!)",
+        "(Bukan yang kuatlah yang menang, yang menanglah yang kuat)",
+        "(Trik tidak lain adalah teka-teki yang dibuat oleh manusia. Jika Anda menggunakan akal sehat, Anda bisa menemukan jawaban yang logis)",
+        "(Kekuatan deduksi tidak dibatasi oleh usia. Pikiranlah yang memecahkan kasus, bukan tubuh..)",
+        "(Seorang yang hanya bisa memikirkan misteri, tidak akan mampu melakukan hal seperti ini)",
+        "(Dalam dunia deduksi, tidak ada jalan pintas. Ini adalah tentang pengamatan yang cermat, menghubungkan titik-titik, dan mengungkap kebenaran)",
+        "(Setiap misteri adalah teka-teki yang menunggu untuk dipecahkan. Semangat saya untuk melakukan deduksi semakin membara dengan setiap kasus)",
+        "(Dalam mengejar kebenaran, aku telah belajar bahwa inspirasi dapat ditemukan di tempat yang paling tidak terduga. Kehidupan itu sendiri adalah guru terbaik.)",
+        "(Pengamatan bukan hanya tentang melihat; ini tentang pemahaman yang sesungguhnya. Dalam detail terkecil terdapat kunci untuk memecahkan misteri yang paling besar)"
     ]
 }
 
 const guessedWrong = {
     gifs: [
-        "https://media.tenor.com/BYsOZIxZGB0AAAAM/josuke.gif",
-        "https://media.tenor.com/8kvx6rXn5w4AAAAM/anime-smile.gif",
-        "https://media.tenor.com/EqrI4CB-grYAAAAM/anime-happy.gif",
-        "https://media.tenor.com/ZglUG-3bnOAAAAAM/anime-shikimoris-not-just-cute.gif",
-        "https://media.tenor.com/-R5KgJXNyiwAAAAM/jujutsu-kaisen-itadori.gif",
-        "https://media.tenor.com/jKCHrqzLx2wAAAAM/jojo-laugh.gif",
-        "https://media.tenor.com/ZncIFM9jiMoAAAAM/anime-crying.gif",
-        "https://media.tenor.com/EXikU561DxsAAAAM/sad-anime.gif",
-        "https://media.tenor.com/pqXmHpbIy0MAAAAM/anime-anime-hug.gif",
-        "https://media.tenor.com/Di5YqKxPrCIAAAAM/bocchi-the-rock-bocchi-the-rock-shock.gif"
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif"
     ],
     kanji: [
-        "残念！不正解だよ！",
-        "あらら！外れちゃったね！",
-        "残念！間違ってるよ！",
-        "残念！正しい答えじゃないね！",
-        "あれ？違うよ！",
-        "残念！正解とは違うね！",
-        "あらら！見事に外したね！",
-        "残念！正解を言い当てられなかったね！",
-        "残念でした！不正解です！",
-        "残念！正解を導き出せなかったね！"
+        "Ah-Le-Le?",
+        "Although this mirror can show a reflection, it cannot show you the truth",
+        "There’re no such things as a perfect person in this world",
+        "There are things that shall remain a mystery",
+        "Sometimes feelings get tangled together with deductions, forming a veil that hides the truth",
+        "Unsolvable cases are a challenge I embrace. They remind me that even in defeat, I grow stronger, wiser, and more determined.",
+        "In the world of mysteries, nothing is as it seems. It’s the unexpected twists that make life truly intriguing",
+        "In the shadow of mystery, truth hides, and deception thrives. It’s the thrill of the chase that keeps us going",
+        "Some mysteries are meant to remain unsolved, but that doesn’t deter my pursuit of truth. The journey itself is worth the effort",
+        "An unsolvable case is an enigma that fuels my passion for deduction. It’s a reminder that the pursuit of truth is never in vain"
     ],
     romaji: [
-        "(Zannen! Fuseikai da yo!)",
-        "(Arara! Hazurechatta ne!)",
-        "(Zannen! Machigatteru yo!)",
-        "(Zannen! Tadashii kotae janai ne!)",
-        "(Are? Chigau yo!)",
-        "(Zannen! Seikai to wa chigau ne!)",
-        "(Arara! Migitoni hazushita ne!)",
-        "(Zannen! Seikai o iiatrarenakatta ne!)",
-        "(Zannen deshita! Fuseikai desu!)",
-        "(Zannen! Seikai o michibikidasenakatta ne!)"
+        "(Ah-Le-Le?)",
+        "(Meskipun cermin ini bisa menunjukkan pantulan, namun tidak bisa menunjukkanmu kebenaran)",
+        "(Tidak ada yang namanya orang yang sempurna di dunia ini)",
+        "(Ada beberapa hal yang akan tetap menjadi misteri)",
+        "(Terkadang perasaan menjadi kusut bersama dengan deduksi, membentuk tirai yang menyembunyikan kebenaran)",
+        "(Kasus-kasus yang tidak terpecahkan adalah tantangan yang saya hadapi.Kasus-kasus tersebut mengingatkan saya bahwa bahkan dalam kekalahan, saya menjadi lebih kuat, lebih bijaksana, dan lebih bertekad.)",
+        "(Dalam dunia misteri, tidak ada yang seperti yang terlihat. Hal-hal yang tidak terduga yang membuat hidup ini benar-benar menarik)",
+        "(Dalam bayang-bayang misteri, kebenaran bersembunyi, dan penipuan semakin merajalela. Sensasi dari pengejaran inilah yang membuat kita terus maju)",
+        "(Beberapa misteri memang ditakdirkan untuk tetap tidak terpecahkan, namun hal itu tidak menghalangiku untuk mengejar kebenaran. Perjalanan itu sendiri sepadan dengan usaha yang dibutuhkan)",
+        "(Kasus yang tidak terpecahkan adalah sebuah teka-teki yang memicu hasrat saya untuk melakukan deduksi. Ini adalah pengingat bahwa pengejaran kebenaran tidak pernah sia-siaKasus yang tidak terpecahkan adalah sebuah teka-teki yang memicu hasrat untuk melakukan deduksi. Ini adalah pengingat bahwa pengejaran kebenaran tidak pernah sia-sia)"
     ]
 }
 
@@ -141,7 +141,7 @@ export default function Result({result, expression, nums}: ResultProps){
                     display: 'block'
                 }} className='font-bold'
                 >
-                    Play again {result ? "😆✨" : "😡💢"}
+                    {result ? "lagi ah aku jago" : "aku akan balas dendam"}
                 </Button>
                 <Button href="/" variant="contained" color="secondary" style={{
                     marginTop: 20,
@@ -151,7 +151,7 @@ export default function Result({result, expression, nums}: ResultProps){
                     display: 'block'
                 }} className='font-bold'
                 >
-                    Decrease me here
+                    Udah ah capek males mikir
                 </Button>
             </div>
         </div>

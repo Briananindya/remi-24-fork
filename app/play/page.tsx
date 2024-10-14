@@ -52,7 +52,7 @@ export default function Play() {
             <div className="min-h-screen flex items-center justify-center font-bold">
                 <div className='block text-center'>
                     <Image 
-                        src="https://media.tenor.com/HHUcXimKS7cAAAAi/yay-jumping.gif"
+                        src="https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif"
                         alt="Loading" 
                         width={100} 
                         height={100}
@@ -71,7 +71,7 @@ export default function Play() {
             <div className="min-h-screen flex items-center justify-center font-bold p-5">
                 <div className='block text-center'>
                     <p className="mb-3 text-2xl">
-                        Can the following list of numbers be operated in such a way that it produces 24? 👀
+                        Apakah list angka tersebut bisa menjadi 24? 👀
                     </p>
                     <p className="mb-5 text-2xl">
                         [{data.nums[0]},{data.nums[1]},{data.nums[2]},{data.nums[3]}]
@@ -89,7 +89,7 @@ export default function Play() {
                             setGuess(true)
                         }}
                         >
-                            True ✅
+                            Bisa ✅
                         </Button>
                         <Button variant="contained" color="error" style={{
                             borderRadius: 50,
@@ -102,7 +102,7 @@ export default function Play() {
                             setGuess(false)
                         }}
                         >
-                            False ❌
+                            Gabisa ❌
                         </Button>
                     </div>
                     <Button href="/" variant="contained" color="secondary" style={{
@@ -112,7 +112,7 @@ export default function Play() {
                         display: 'block'
                     }} className='font-bold'
                     >
-                        Back
+                        Balik
                     </Button>
                 </div>
             </div>
