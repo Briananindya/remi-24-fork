@@ -10,16 +10,16 @@ const notoSansJP = Noto_Sans_JP({
 
 const guessedRight = {
     gifs: [
+        "https://media.tenor.com/mHXNv7TSCLMAAAAi/detective-conan.gif",
+        "https://media.tenor.com/8KYu56w12M4AAAAi/detective-conan-okay.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
         "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/8KYu56w12M4AAAAi/detective-conan-okay.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
         "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
-        "https://media.tenor.com/_1BGjzDAvnkAAAAi/detective-conan.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/sPwy8pSrnXQAAAAi/detective-conan.gif",
+        "https://media.tenor.com/mHXNv7TSCLMAAAAi/detective-conan.gif"
     ],
     kanji: [
         "There is always only one truth",
@@ -50,14 +50,14 @@ const guessedRight = {
 const guessedWrong = {
     gifs: [
         "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
         "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/ySTESf7LGvUAAAAi/detective-conan.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
         "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
-        "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif",
+        "https://media.tenor.com/FEf8AzUTwOAAAAAi/detective-conan-what.gif",
         "https://media.tenor.com/nFJ7oJf2WKEAAAAi/detective-conan-no.gif"
     ],
     kanji: [
